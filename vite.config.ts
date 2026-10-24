@@ -7,11 +7,6 @@ import { sites } from "./build/sites-vite-plugin";
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const isCodexLocalPreview = process.env.CODEX_LOCAL_PREVIEW === "1";
 
-const localBindingConfig = {
-  main: "./worker/index.ts",
-  compatibility_flags: ["nodejs_compat"],
-};
-
 export default defineConfig(async () => {
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
@@ -30,7 +25,6 @@ export default defineConfig(async () => {
         ? [
             cloudflare({
               viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
-              config: localBindingConfig,
             }),
           ]
         : []),
