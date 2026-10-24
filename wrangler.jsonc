@@ -4,6 +4,7 @@
   "name": "game-neon-nine",
   "main": "./worker/index.ts",
   "compatibility_date": "2026-05-15",
+  "routes": [{ "pattern": "neonnine.redhippo.app", "custom_domain": true }],
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true }
 }
